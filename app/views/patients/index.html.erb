@@ -1,0 +1,35 @@
+<h1>All patients</h1>
+
+<%= link_to "Create new patient", new_patient_path %>
+
+<br></br>
+
+<table>
+<tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Diagnosis</th>
+    <th>Birth date</th>
+</tr>
+
+<% @patients.each do |patient| %>
+    <tr>
+        <td><%= patient.first_name %></td>
+        <td><%= patient.last_name %></td>
+        <td><%= patient.diagnosis %></td>
+        <td><%= patient.born_on %></td>
+
+        <td><%= link_to "Edit this patient", edit_patient_path(patient) %>
+        &nbsp;|&nbsp;
+
+        <%= link_to "Delete Patient", patient_path(patient), 
+                    data: { 
+                        turbo_method: :delete, 
+                        turbo_confirm: "Are you sure you want to delete #{patient.first_name} #{patient.last_name}?" 
+                        } %>
+
+    </td>
+    </tr>
+<% end %>
+
+</table>
