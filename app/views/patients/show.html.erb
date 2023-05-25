@@ -1,0 +1,26 @@
+<%= link_to "Back to All Patients", patients_path %>
+
+<h2><%= @patient.first_name %> <%= @patient.last_name %></h2>
+
+<h3>Patient Details</h3>
+
+<strong>First name: </strong><%= @patient.first_name %>
+<br></ br>
+<strong>Last name: </strong><%= @patient.last_name %>
+<br></ br>
+<strong>Date of birth: </strong><%= @patient.born_on %>
+<br></ br>
+<strong>Diagnosis: </strong><%= @patient.diagnosis %>
+
+
+<br></ br><br></ br>
+<%= link_to "Edit this patient", edit_patient_path(@patient) %>
+&nbsp;|&nbsp;
+
+<%= link_to "Delete Patient", patient_path(@patient), 
+            data: { 
+                turbo_method: :delete, 
+                turbo_confirm: "Are you sure you want to delete #{@patient.first_name} #{@patient.last_name}?" 
+                } %>
+
+

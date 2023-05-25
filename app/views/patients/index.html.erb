@@ -1,4 +1,4 @@
-<h1>All patients</h1>
+<h1>All Patients</h1>
 
 <%= link_to "Create new patient", new_patient_path %>
 
@@ -18,17 +18,8 @@
         <td><%= patient.last_name %></td>
         <td><%= patient.diagnosis %></td>
         <td><%= patient.born_on %></td>
-
-        <td><%= link_to "Edit this patient", edit_patient_path(patient) %>
-        &nbsp;|&nbsp;
-
-        <%= link_to "Delete Patient", patient_path(patient), 
-                    data: { 
-                        turbo_method: :delete, 
-                        turbo_confirm: "Are you sure you want to delete #{patient.first_name} #{patient.last_name}?" 
-                        } %>
-
-    </td>
+        
+        <td><%= link_to "View patient", patient_path(patient) %></td>
     </tr>
 <% end %>
 
